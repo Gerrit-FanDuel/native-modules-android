@@ -68,6 +68,9 @@ You've successfully run and modified your React Native App. :partying_face:
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
+Notes
+- If you see an error like <kbd>Unrecognized VM option 'MaxPermSize=4096m'</kbd> you may need to update your global <kbd>gradle.properties</kbd> file to include <kbd>org.gradle.jvmargs=-Xmx1024m</kbd>.
+
 # Learn More
 
 To learn more about React Native, take a look at the following resources:
