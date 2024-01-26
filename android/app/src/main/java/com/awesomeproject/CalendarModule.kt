@@ -7,17 +7,20 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import android.util.Log
 import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.Promise
 
 class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     override fun getName() = "CalendarModule"
 
     @ReactMethod
-    fun createCalendarEvent(name: String, location: String, myFailureCallback: Callback, mySuccessCallback: Callback) {
-        Log.d("CalendarModule", "Create event called with name: $name and location: $location")
-
-        val eventId = 123456
-        mySuccessCallback.invoke(eventId)
+    fun createCalendarEvent(name: String, location: String, promise: Promise) {
+        try {
+            val eventId = 123456
+            promise.resolve(eventId)
+        } catch (e: Throwable) {
+            promise.reject("Create Event Error", "Error parsing data", e)
+        }
     }
 
 //    val dateFormat = "yyyy-MM-dd"

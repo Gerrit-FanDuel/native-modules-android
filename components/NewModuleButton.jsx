@@ -3,17 +3,16 @@ import {Button} from 'react-native';
 import CalendarModule from './CalendarModule';
 
 const NewModuleButton = () => {
-  const onPress = () => {
-    CalendarModule.createCalendarEvent(
-      'Party',
-      'My House',
-      error => {
-        console.error(`Error found! ${error}`);
-      },
-      eventId => {
-        console.log(`event id ${eventId} returned`);
-      },
-    );
+  const onPress = async () => {
+    try {
+      const eventId = await CalendarModule.createCalendarEvent(
+        'Party',
+        'My House',
+      );
+      console.log(`Created a new event with id ${eventId}`);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
