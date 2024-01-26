@@ -16,4 +16,16 @@ class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
         Log.d("CalendarModule", "Create event called with name: $name and location: $location")
     }
 
+//    val dateFormat = "yyyy-MM-dd"
+//    val sdf = SimpleDateFormat(dateFormat, Locale.US)
+//    val eStartDate = Calendar.getInstance()
+//    try {
+//        sdf.parse(startDate)?.let {
+//            eStartDate.time = it
+//        }
+//    }
+
+    override fun getConstants(): MutableMap<String, Any> =
+        hashMapOf("DEFAULT_EVENT_NAME" to "New Event")
+
 }

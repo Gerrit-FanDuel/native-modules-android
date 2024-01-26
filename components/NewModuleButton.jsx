@@ -8,6 +8,9 @@ const NewModuleButton = () => {
     CalendarModule.createCalendarEvent('foo', 'bar');
   };
 
+  const {DEFAULT_EVENT_NAME} = CalendarModule.getConstants();
+  console.log({DEFAULT_EVENT_NAME});
+
   return (
     <Button
       title="Click to invoke your native module!"
