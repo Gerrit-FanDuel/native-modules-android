@@ -6,14 +6,18 @@ import com.facebook.react.bridge.ReactContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import android.util.Log
+import com.facebook.react.bridge.Callback
 
 class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     override fun getName() = "CalendarModule"
 
     @ReactMethod
-    fun createCalendarEvent(name: String, location: String) {
+    fun createCalendarEvent(name: String, location: String, myFailureCallback: Callback, mySuccessCallback: Callback) {
         Log.d("CalendarModule", "Create event called with name: $name and location: $location")
+
+        val eventId = 123456
+        mySuccessCallback.invoke(eventId)
     }
 
 //    val dateFormat = "yyyy-MM-dd"
